@@ -1,0 +1,226 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.wizonsoft.coteafs</groupId>
+	<artifactId>coteafs</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Parent Project for coteafs framework.</description>
+	<url>https://github.com/wizonsoft/coteafs</url>
+	<inceptionYear>2016</inceptionYear>
+
+	<organization>
+		<name>wizonsoft, Inc.</name>
+		<url>https://github.com/wizonsoft</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<contributors>
+		<contributor>
+			<organization>wizonsoft, inc</organization>
+			<organizationUrl>https://github.com/wizonsoft</organizationUrl>
+			<roles>
+				<role>Owner</role>
+			</roles>
+			<timezone>+5.5</timezone>
+		</contributor>
+	</contributors>
+
+	<developers>
+		<developer>
+			<id>1</id>
+			<name>Wasiq Bhamla</name>
+			<email>wasbhamla2005@gmail.com</email>
+			<organization>wizonsoft, Inc.</organization>
+			<organizationUrl>https://github.com/wizonsoft</organizationUrl>
+			<roles>
+				<role>Admin</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>+5</timezone>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/wizonsoft/coteafs.git</connection>
+		<developerConnection>scm:git:https://github.com/wizonsoft/coteafs.git</developerConnection>
+		<url>https://github.com/wizonsoft/coteafs.git</url>
+	</scm>
+
+	<ciManagement>
+		<system>travis</system>
+		<url>https://travis-ci.org/wizonsoft/coteafs</url>
+	</ciManagement>
+
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<name>bintray</name>
+			<url>http://jcenter.bintray.com</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/wizonsoft/coteafs/issues</url>
+	</issueManagement>
+
+	<modules>
+		<module>coteafs-bom</module>
+		<module>coteafs-commons</module>
+	</modules>
+
+	<properties>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.source.encoding>UTF-8</maven.source.encoding>
+		<testng.version>6.9.13.6</testng.version>
+		<restassured.version>2.9.0</restassured.version>
+		<log4j.version>2.6.2</log4j.version>
+		<poi.version>3.15</poi.version>
+		<reportng.version>1.1.4</reportng.version>
+		<guice.version>4.1.0</guice.version>
+		<velocity.version>1.4</velocity.version>
+		<dbunit.version>2.5.3</dbunit.version>
+		<jackson.version>2.8.3</jackson.version>
+		<truth.version>0.30</truth.version>
+		<commons.version>3.4</commons.version>
+		<config.version>1.10</config.version>
+		<postgre.version>9.4.1211</postgre.version>
+		<jacoco.version>0.7.7.201606060606</jacoco.version>
+		<maven.source.version>3.0.1</maven.source.version>
+		<maven.javadoc.version>2.10.4</maven.javadoc.version>
+		<nexus.version>1.6.7</nexus.version>
+		<maven.gpg.version>1.6</maven.gpg.version>
+		<surefire-version>2.19.1</surefire-version>
+		<version.version>2.3</version.version>
+		<suite-xml>testng.xml</suite-xml>
+	</properties>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>${maven.source.encoding}</encoding>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.version}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>${version.version}</version>
+				<configuration>
+					<generateBackupPoms>false</generateBackupPoms>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven.gpg.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>${nexus.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
