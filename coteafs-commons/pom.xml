@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>coteafs-commons</artifactId>
+	<packaging>jar</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Common library for CoTeAFS Framework.</description>
 
@@ -52,10 +53,6 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
 		</dependency>
 	</dependencies>
 </project>
