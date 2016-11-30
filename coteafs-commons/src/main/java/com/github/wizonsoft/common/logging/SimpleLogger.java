@@ -19,22 +19,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.wizonsoft.common.exception.InternalError;
-import com.github.wizonsoft.common.utils.StringUtil;
 
 /**
  * @author wasiq.bhamla
  * @since 04-Nov-2016 8:48:34 PM
  */
 public class SimpleLogger {
-	private static final SimpleLogger instance = new SimpleLogger ();
-
 	/**
 	 * @author wasiq.bhamla
 	 * @since 04-Nov-2016 9:32:20 PM
 	 * @return instance
 	 */
 	public static SimpleLogger create () {
-		return instance;
+		return new SimpleLogger ();
 	}
 
 	private StackTraceElement []	caller;
@@ -56,7 +53,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void debug (final String message, final Object... args) {
-		this.logger.debug (StringUtil.format (message, args));
+		this.logger.debug (String.format (message, args));
 	}
 
 	/**
@@ -66,7 +63,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void error (final String message, final Object... args) {
-		this.logger.error (StringUtil.format (message, args));
+		this.logger.error (String.format (message, args));
 	}
 
 	/**
@@ -76,7 +73,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void fatal (final String message, final Object... args) {
-		this.logger.fatal (StringUtil.format (message, args));
+		this.logger.fatal (String.format (message, args));
 	}
 
 	/**
@@ -86,7 +83,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void info (final String message, final Object... args) {
-		this.logger.info (StringUtil.format (message, args));
+		this.logger.info (String.format (message, args));
 	}
 
 	/**
@@ -96,7 +93,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void trace (final String message, final Object... args) {
-		this.logger.trace (StringUtil.format (message, args));
+		this.logger.trace (String.format (message, args));
 	}
 
 	/**
@@ -106,7 +103,7 @@ public class SimpleLogger {
 	 * @param args
 	 */
 	public void warn (final String message, final Object... args) {
-		this.logger.warn (StringUtil.format (message, args));
+		this.logger.warn (String.format (message, args));
 	}
 
 	/**
